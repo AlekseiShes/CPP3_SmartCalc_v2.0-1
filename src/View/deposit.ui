@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DepositView</class>
+ <widget class="QDialog" name="DepositView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>463</width>
+    <height>566</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>463</width>
+    <height>560</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>463</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>DepositCalc</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+        background-color: rgba(93, 92, 94, 209);
+}</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QLabel" name="label_summ">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Сумма вклада (руб.)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_period">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Срок размещения (мес.)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_begin">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>10</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Дата начала срока</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QCalendarWidget" name="calendarWidget">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>60</y>
+     <width>211</width>
+     <height>191</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_persent">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Процентная ставка (%)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_replenish">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Периодичность</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_calcDeposit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>441</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	font:14pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}
+QPushButton:pressed {
+  background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                             stop: 0 #dadbde, stop: 1 #f6f7fa);
+}</string>
+   </property>
+   <property name="text">
+    <string>Рассчитать</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="deposit_summ">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>10</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="period">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>50</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="percent">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>90</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_periodization">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>170</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Ежемесячно</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Ежеквартально</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Ежегодно</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>В конце срока</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_summAll">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>460</y>
+     <width>251</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Сумма вклада c процентами (руб.)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_procents_end">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>380</y>
+     <width>251</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Начисленные проценты (руб.)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_tax">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>420</y>
+     <width>251</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Удержано налогов (руб.)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_profit">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>380</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+    border: 1px solid grey;
+	background-color: rgb(155, 155, 155);
+	font: 10pt &quot;Arial&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_total">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>460</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+    border: 1px solid grey;
+	background-color: rgb(155, 155, 155);
+	font: 10pt &quot;Arial&quot;;
+}</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_tax_2">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>420</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+    border: 1px solid grey;
+	background-color: rgb(155,155, 155);
+	font: 10pt &quot;Arial&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_cash">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Сумма снятия (руб)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_replenish_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>210</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Сумма пополнения (руб.)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="refill">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>210</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_closedeposit">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>510</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Закрыть</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_simple">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>.AppleSystemUIFont</family>
+     <pointsize>10</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QRadioButton{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Простой депозит</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_capital">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>290</y>
+     <width>241</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QRadioButton{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Капитализация</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="write_off">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>250</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_persent_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+font:10pt &quot;.AppleSystemUIFont&quot;;
+	color: rgb(255, 255, 255);
+     border: 1px solid grey;
+	background-color: rgba(93, 92, 94, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>Налог (%)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="percentBet">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>130</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
